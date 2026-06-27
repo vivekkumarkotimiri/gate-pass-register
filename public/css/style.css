@@ -42,7 +42,7 @@ body {
     height:80px;
     width:auto;
     flex-shrink:0;
-}
+  }
 .brand-text { display: flex; flex-direction: column; }
 
 .topbar h1 {
