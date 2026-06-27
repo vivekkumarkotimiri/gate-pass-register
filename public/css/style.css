@@ -1,0 +1,212 @@
+/* ============================================================
+   Gate Pass Register — visual theme
+   Concept: a physical ledger book. Cream "paper" background,
+   ink-navy headings, a brass/amber accent for the auto-numbered
+   gate pass tag (styled like a stamped ticket stub), perforated
+   rule between the stub number and the rest of each row.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  --ink: #1b2a41;
+  --ink-soft: #3a4a63;
+  --paper: #f4efe3;
+  --paper-raised: #fbf8f0;
+  --rule: #d8cdb4;
+  --brass: #b8862f;
+  --brass-deep: #8f6620;
+  --open: #3f6b4d;
+  --open-bg: #e3ecdf;
+  --closed: #9c3d34;
+  --closed-bg: #f1e1dd;
+  --shadow: 0 2px 10px rgba(27, 42, 65, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(27,42,65,0.025) 0px, rgba(27,42,65,0.025) 1px, transparent 1px, transparent 28px);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+.topbar { display: flex; align-items: baseline; justify-content: space-between; padding: 28px 40px 18px; border-bottom: 3px double var(--rule); flex-wrap: wrap; gap: 12px; }
+
+.brand{ display:flex; align-items:center; gap:14px; }
+.brand-logo{
+    height:80px;
+    width:auto;
+    flex-shrink:0;
+}
+.brand-text { display: flex; flex-direction: column; }
+
+.topbar h1 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.topbar .subtitle {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.topbar nav a {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 7px 14px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.topbar nav a:hover { background: var(--ink); color: var(--paper-raised); }
+
+main { padding: 24px 40px 60px; max-width: 1180px; margin: 0 auto; }
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  align-items: center;
+}
+
+input, select, textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 9px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: 1px;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 9px 16px;
+  border-radius: 3px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper-raised);
+  cursor: pointer;
+}
+button:hover { background: var(--ink-soft); }
+button.secondary { background: transparent; color: var(--ink); }
+button.secondary:hover { background: rgba(27,42,65,0.06); }
+button.danger { background: var(--closed); border-color: var(--closed); }
+button.danger:hover { background: #7e2f28; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+thead th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--rule);
+  padding: 12px 14px;
+  background: rgba(184, 134, 47, 0.07);
+}
+
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: rgba(184, 134, 47, 0.05); }
+
+.tag-no {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  color: var(--brass-deep);
+  background: rgba(184,134,47,0.12);
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.03em;
+}
+.badge.open { background: var(--open-bg); color: var(--open); }
+.badge.closed { background: var(--closed-bg); color: var(--closed); }
+.badge.returnable { background: #e4e9f1; color: var(--ink-soft); }
+.badge.nonreturnable { background: #f1ece1; color: var(--brass-deep); }
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Admin specific ---- */
+.login-wrap {
+  max-width: 360px;
+  margin: 80px auto;
+  background: var(--paper-raised);
+  padding: 32px;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.login-wrap h2 { font-family: 'Source Serif 4', serif; margin-top: 0; }
+.login-wrap form { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; text-align: left; }
+.login-wrap label { font-size: 12px; color: var(--ink-soft); margin-bottom: -6px; }
+.error-msg { color: var(--closed); font-size: 13px; min-height: 18px; }
+.success-msg { color: var(--open); font-size: 13px; min-height: 18px; }
+
+.form-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+.form-card h3 { margin: 0 0 14px; font-family: 'Source Serif 4', serif; font-size: 18px; }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.form-grid label { display: block; font-size: 12px; color: var(--ink-soft); margin-bottom: 5px; }
+.form-grid input, .form-grid select, .form-grid textarea { width: 100%; }
+.form-actions { margin-top: 16px; display: flex; gap: 10px; }
+
+.row-actions { display: flex; gap: 6px; }
+.row-actions button { padding: 6px 10px; font-size: 12px; }
+
+.userbar { font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; gap: 10px; }
