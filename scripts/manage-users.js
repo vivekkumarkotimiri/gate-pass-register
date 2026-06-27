@@ -146,9 +146,9 @@ switch (command) {
 
 Available commands:
   node scripts/manage-users.js list
-  node scripts/manage-users.js add amc amc1234 [role]
+  node scripts/manage-users.js add <username> <password> [role]
   node scripts/manage-users.js set-password <username> <newPassword>
   node scripts/manage-users.js set-username <oldUsername> <newUsername>
-  node scripts/manage-users.js set-role amc <admin>
+  node scripts/manage-users.js set-role <username> <admin|staff>
   node scripts/manage-users.js remove <username>`);
 }
