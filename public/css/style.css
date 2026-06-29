@@ -38,11 +38,11 @@ body {
 .topbar { display: flex; align-items: baseline; justify-content: space-between; padding: 28px 40px 18px; border-bottom: 3px double var(--rule); flex-wrap: wrap; gap: 12px; }
 
 .brand{ display:flex; align-items:center; gap:14px; }
-.brand-logo{
-    height:80px;
-    width:auto;
-    flex-shrink:0;
-  }
+  .brand-logo{
+      height:80px;
+      width:auto;
+      flex-shrink:0;
+    }
 .brand-text { display: flex; flex-direction: column; }
 
 .topbar h1 {
