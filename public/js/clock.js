@@ -7,7 +7,7 @@ function updateLiveClock() {
     weekday: "short", year: "numeric", month: "short", day: "numeric",
   });
   const timeStr = now.toLocaleTimeString(undefined, {
-    hour: "2-digit", minute: "2-digit", second: "2-digit",
+    hour: "2-digit", minute: "2-digit",second: "2-digit",
   });
 
   el.textContent = `${dateStr}  •  ${timeStr}`;
