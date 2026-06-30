@@ -113,7 +113,7 @@ button {
   cursor: pointer;
 }
 button:hover { background: var(--ink-soft); }
-button.secondary { background: transparent; color: var(--ink); }
+button.secondary { background:whitesmoke; color: var(--ink); }
 button.secondary:hover { background: rgba(27,42,65,0.06); }
 button.danger { background: var(--closed); border-color: var(--closed); }
 button.danger:hover { background: #7e2f28; }
@@ -217,3 +217,4 @@ tbody tr:hover { background: rgba(184, 134, 47, 0.05); }
 .row-actions button { padding: 6px 10px; font-size: 12px; }
 
 .userbar { font-size: 13px; color: var(--ink-soft); display: flex; align-items: center; gap: 10px; }
+.whoAmI{color: white;}

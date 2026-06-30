@@ -12,7 +12,7 @@
 <!-- ===================== LOGIN VIEW ===================== -->
 <div id="loginView" class="login-wrap">
   <h2>Authorized Login</h2>
-  <p style="font-size:13px;color:var(--ink-soft);margin:0;">Sign in to add, edit, or close gate passes.</p>
+  
   <form id="loginForm">
     <label for="username">Username</label>
     <input type="text" id="username" required autocomplete="username" />
@@ -29,19 +29,15 @@
 
   <header class="topbar">
     <div class="brand">
-      <svg class="brandmark" width="46" height="46" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="29" fill="none" stroke="var(--brass)" stroke-width="2" stroke-dasharray="3.4 3.4"/>
-        <circle cx="32" cy="32" r="23" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
-        <text x="32" y="38" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="17" fill="var(--brass-deep)">GP</text>
-      </svg>
+      <img class="brand-logo" src="images/logo.png" alt="TGTRANSCO">
       <div class="brand-text">
         <h1>Gate Pass Register</h1>
-        <div class="subtitle">Admin dashboard — entry, update and deletion (authorized persons only)</div>
+        
       </div>
     </div>
     <div class="userbar">
       <span id="liveClock" class="live-clock"></span>
-      <span id="whoAmI"></span>
+      <span id="whoAmI" class="whoAmI"></span>
       <button class="secondary" id="logoutBtn" type="button">Log out</button>
       <a href="index.html" style="font-size:13px;">Public view</a>
     </div>
