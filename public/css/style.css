@@ -44,7 +44,13 @@ body {
       flex-shrink:0;
     }
 .brand-text { display: flex; flex-direction: column; }
-
+.live-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  align-self: center;
+}
 .topbar h1 {
   font-family: 'Source Serif 4', serif;
   font-size: 28px;
