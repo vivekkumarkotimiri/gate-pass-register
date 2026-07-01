@@ -59,6 +59,14 @@
             <input type="text" id="c_material" placeholder="e.g. Laptop Dell Inspiron" required />
           </div>
           <div>
+             <label for="c_technician">Technician name</label>
+             <input type="text" id="c_technician" placeholder="Enter Name"/>
+          </div>
+          <div>
+            <label for="c_number">Contact No.</label>
+            <input type="number" id="c_number" placeholder="Enter Number of 10 digits">
+          </div>
+          <div>
             <label for="c_type">Returnable / Non-Returnable</label>
             <select id="c_type" required>
               <option value="Returnable">Returnable</option>
@@ -66,7 +74,7 @@
             </select>
           </div>
           <div class="full">
-            <label for="c_address">Address (going to)</label>
+            <label for="c_address">Address</label>
             <input type="text" id="c_address" placeholder="Destination address" required />
           </div>
           <div>
@@ -107,8 +115,10 @@
           <th>Gate Pass No.</th>
           <th>Date</th>
           <th>Material</th>
-          <th>Type</th>
-          <th>Going to</th>
+          <th>Technician Name</th>
+          <th>Contact No.</th>
+          <th>Returnable / Non-Returnable</th>
+          <th>Address</th>
           <th>Purpose</th>
           <th>Status</th>
           <th>Actions</th>
@@ -134,6 +144,14 @@
         <div>
           <label for="e_material">Material name</label>
           <input type="text" id="e_material" required />
+        </div>
+        <div>
+          <label for="e_technician">Technician name</label>
+          <input type="text" id="e_technician" required />
+        </div>
+        <div>
+          <label for="e_number">Contact No.</label>
+          <input type="text" id="e_number" required />
         </div>
         <div>
           <label for="e_type">Returnable / Non-Returnable</label>

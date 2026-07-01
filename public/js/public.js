@@ -43,11 +43,13 @@ async function loadEntries() {
 
   for (const entry of data) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `
+   tr.innerHTML = `
       <td><span class="tag-no">${entry.gate_pass_no}</span></td>
       <td>${entry.entry_date}</td>
       <td>${entry.material_name}</td>
       <td>${typeBadge(entry.return_type)}</td>
+      <td>${entry.technician || '—'}</td>
+      <td>${entry.number || '—'}</td>
       <td>${entry.address}</td>
       <td>${entry.purpose}</td>
       <td>${statusBadge(entry.status)}</td>

@@ -42,6 +42,16 @@ function showDashboard() {
   loginView.style.display = "none";
   dashboardView.style.display = "block";
   whoAmI.textContent = `Signed in as ${getUsername()}`;
+
+  const dateField = document.getElementById("c_date");
+  if (dateField && !dateField.value) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    dateField.value = `${yyyy}-${mm}-${dd}`;
+  }
+
   loadEntries();
 }
 
@@ -117,6 +127,8 @@ async function loadEntries() {
       <td><span class="tag-no">${entry.gate_pass_no}</span></td>
       <td>${entry.entry_date}</td>
       <td>${entry.material_name}</td>
+      <td>${entry.technician || '—'}</td>
+      <td>${entry.number || '—'}</td>
       <td>${typeBadge(entry.return_type)}</td>
       <td>${entry.address}</td>
       <td>${entry.purpose}</td>
@@ -169,6 +181,8 @@ createForm.addEventListener("submit", async (e) => {
   const payload = {
     entry_date: document.getElementById("c_date").value,
     material_name: document.getElementById("c_material").value.trim(),
+    technician: document.getElementById("c_technician").value,
+    number: document.getElementById("c_number").value.trim(),
     return_type: document.getElementById("c_type").value,
     address: document.getElementById("c_address").value.trim(),
     purpose,
@@ -205,6 +219,8 @@ function openEdit(entry) {
   document.getElementById("e_id").value = entry.id;
   document.getElementById("e_date").value = entry.entry_date;
   document.getElementById("e_material").value = entry.material_name;
+  document.getElementById("e_technician").value = entry.technician;
+  document.getElementById("e_number").value = entry.number;
   document.getElementById("e_type").value = entry.return_type;
   document.getElementById("e_status").value = entry.status;
   document.getElementById("e_address").value = entry.address;
@@ -222,6 +238,8 @@ editForm.addEventListener("submit", async (e) => {
   const payload = {
     entry_date: document.getElementById("e_date").value,
     material_name: document.getElementById("e_material").value.trim(),
+   technician: document.getElementById("e_technician").value,
+    number: document.getElementById("e_number").value.trim(),
     return_type: document.getElementById("e_type").value,
     status: document.getElementById("e_status").value,
     address: document.getElementById("e_address").value.trim(),
