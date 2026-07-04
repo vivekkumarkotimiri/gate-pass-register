@@ -18,6 +18,13 @@
     <input type="text" id="username" required autocomplete="username" />
     <label for="password">Password</label>
     <input type="password" id="password" required autocomplete="current-password" />
+    <label>Verify you're human</label>
+    <div class="captcha-box">
+      <span class="captcha-question" id="captchaQuestion"></span>
+      <span style="font-size:13px;color:var(--ink-soft);">=</span>
+      <input type="number" id="captchaAnswer" placeholder="?" required autocomplete="off" />
+      <button type="button" class="captcha-refresh" id="captchaRefresh" title="New question">↻</button>
+    </div>
     <div class="error-msg" id="loginError"></div>
     <button type="submit">Log in</button>
   </form>
@@ -97,6 +104,14 @@
         </div>
       </form>
     </section>
+    <div class="export-bar">
+      <span>Export PDF</span>
+      <label for="fromDate">From</label>
+      <input type="date" id="fromDate" />
+      <label for="toDate">To</label>
+      <input type="date" id="toDate" />
+      <button class="export-btn" type="button" onclick="exportToPDF()">⬇ Download PDF</button>
+    </div>
 
     <!-- Existing entries -->
     <div class="toolbar">
@@ -184,6 +199,9 @@
     </form>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="js/export-pdf.js"></script>
 <script src="js/clock.js"></script>
 <script src="js/admin.js"></script>
 </body>

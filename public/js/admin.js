@@ -12,6 +12,38 @@ const loginForm = document.getElementById("loginForm");
 const loginError = document.getElementById("loginError");
 const whoAmI = document.getElementById("whoAmI");
 const logoutBtn = document.getElementById("logoutBtn");
+// ---------------- CAPTCHA ----------------
+
+let captchaAnswer = 0;
+
+function generateCaptcha() {
+  const ops = ["+", "-", "×"];
+  const op  = ops[Math.floor(Math.random() * ops.length)];
+  let a, b, answer;
+
+  if (op === "+") {
+    a = Math.floor(Math.random() * 20) + 1;
+    b = Math.floor(Math.random() * 20) + 1;
+    answer = a + b;
+  } else if (op === "-") {
+    a = Math.floor(Math.random() * 20) + 10;
+    b = Math.floor(Math.random() * 10) + 1;
+    answer = a - b;
+  } else {
+    a = Math.floor(Math.random() * 9) + 2;
+    b = Math.floor(Math.random() * 9) + 2;
+    answer = a * b;
+  }
+
+  captchaAnswer = answer;
+  document.getElementById("captchaQuestion").textContent = `${a}  ${op}  ${b}`;
+  document.getElementById("captchaAnswer").value = "";
+}
+
+document.getElementById("captchaRefresh").addEventListener("click", generateCaptcha);
+
+// Generate on page load
+generateCaptcha();
 
 function getToken() { return sessionStorage.getItem("gp_token"); }
 function getUsername() { return sessionStorage.getItem("gp_username"); }
@@ -58,6 +90,15 @@ function showDashboard() {
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   loginError.textContent = "";
+
+  // ---- Check CAPTCHA first ----
+  const userAnswer = parseInt(document.getElementById("captchaAnswer").value, 10);
+  if (isNaN(userAnswer) || userAnswer !== captchaAnswer) {
+    loginError.textContent = "Incorrect answer. Please solve the math question.";
+    generateCaptcha();   // new question every failed attempt
+    return;
+  }
+
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value;
 
@@ -70,6 +111,7 @@ loginForm.addEventListener("submit", async (e) => {
     const data = await res.json();
     if (!res.ok) {
       loginError.textContent = data.error || "Login failed.";
+      generateCaptcha();   // new question after every failed login too
       return;
     }
     sessionStorage.setItem("gp_token", data.token);
@@ -77,6 +119,7 @@ loginForm.addEventListener("submit", async (e) => {
     showDashboard();
   } catch (err) {
     loginError.textContent = "Could not reach the server.";
+    generateCaptcha();
   }
 });
 
