@@ -41,6 +41,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {
   console.log(`Gate Pass Register server running:`);
-  console.log(`  Public view : http://localhost:${PORT}/`);
-  console.log(`  Admin login : http://localhost:${PORT}/admin.html`);
+  console.log(` Local:   http://localhost:${PORT}`);
+  console.log(` Network: http://<Your Computer IP Address>:${PORT}   (share this with LAN users)`);
 });

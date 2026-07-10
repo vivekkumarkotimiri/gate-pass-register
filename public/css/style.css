@@ -179,6 +179,7 @@ tbody tr:hover { background: rgba(184, 134, 47, 0.05); }
 }
 
 /* ---- Admin specific ---- */
+.user{ height:72px; width:auto; flex-shrink:wrap;}
 .login-wrap {
   max-width: 360px;
   margin: 80px auto;
@@ -263,6 +264,7 @@ button.export-btn:hover { background: var(--brass); border-color: var(--brass); 
   font-weight: 700;
   color: var(--ink);
   letter-spacing: 3px;
+  -webkit-user-select: none;
   user-select: none;
   
   flex: 1;
